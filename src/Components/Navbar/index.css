@@ -1,0 +1,166 @@
+.nav_container {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  height: 68px;
+  color: #fff;
+  line-height: 1.2;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  font-size: 14px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0)
+  );
+  transition: background-color 0.7s ease-out;
+}
+
+@media screen and (max-width: 680px) {
+  .nav_container {
+    padding: 0 20px;
+  }
+}
+
+.logo {
+  object-fit: contain;
+  width: 6rem;
+  cursor: pointer;
+}
+
+.links_container {
+  display: flex;
+  list-style-type: none;
+  margin-left: 3rem;
+}
+@media screen and (max-width: 680px) {
+  .links_container {
+    display: none;
+  }
+}
+
+.links {
+  color: #fff;
+  font-size: 14px;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.links:hover {
+  opacity: 0.7;
+}
+
+.links.active {
+  font-weight: 800;
+  cursor: default;
+}
+
+.links.active:hover {
+  opacity: 1;
+}
+
+.right_container {
+  display: flex;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 5rem;
+}
+
+@media screen and (max-width: 680px) {
+  .right_container {
+    margin-right: 1.5rem;
+  }
+}
+
+.profile_icon {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile_icon svg {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.icons_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile_dropdown {
+  border-radius: 5px;
+  position: absolute;
+  z-index: 3;
+  top: 50px;
+  right: 10px;
+  width: 200px;
+  height: 200px;
+  text-align: right;
+  background-color: #141414;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+.profile_dropdown .link {
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.profile_dropdown .link:hover {
+  text-decoration: underline;
+}
+
+.dropdown_arrow {
+  transition: transform 0.2s ease-in;
+}
+
+.notification_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1rem;
+}
+
+.notification_icon svg {
+  cursor: pointer;
+}
+
+.children {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 680px) {
+  .children {
+    display: none;
+  }
+}
+.children p {
+  cursor: pointer;
+}
+
+.search_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.search_container svg {
+  cursor: pointer;
+}

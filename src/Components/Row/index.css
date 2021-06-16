@@ -1,0 +1,63 @@
+.poster_container {
+  width: 11rem;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.posters_wrapper {
+  position: relative;
+  display: flex;
+  padding: 1rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.posters_wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.movie_poster {
+  object-fit: contain;
+  border-radius: 10px;
+  width: 10rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.movie_poster:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.movie_backdrop {
+  object-fit: cover;
+  height: 8rem;
+  width: 11rem;
+}
+
+.row_title {
+  font-size: 1.2rem;
+  padding-left: 1rem;
+}
+
+/* .scroll_arrow {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 50%;
+}
+
+.scroll_arrow_wrapper {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  width: 2rem;
+  height: 100%;
+  transform: translateY(-1rem);
+}
+
+.scroll_arrow_wrapper:hover {
+  background: rgba(20, 20, 20, 0.5);
+  cursor: pointer;
+} */
