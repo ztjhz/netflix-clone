@@ -16,6 +16,12 @@
   height: 30px;
 }
 
+@media screen and (max-width: 480px) {
+  .footer_link {
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+}
 .footer_link a {
   color: grey;
   text-decoration: none;
