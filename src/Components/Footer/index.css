@@ -1,0 +1,18 @@
+footer {
+  margin: 0 200px;
+  margin-top: 20px;
+}
+
+.social_links {
+  display: flex;
+}
+
+.social_links a {
+  margin-right: 20px;
+}
+
+.copyright {
+  font-size: 11px;
+  color: grey;
+  margin-bottom: 20px;
+}

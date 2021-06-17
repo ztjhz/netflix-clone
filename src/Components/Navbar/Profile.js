@@ -2,6 +2,9 @@ const Profile = () => {
   const container = document.createElement('div');
   container.className = 'profile_dropdown';
 
+  const user = document.createElement('div');
+  user.innerHTML = 'User: <u>ztjhz</u>';
+
   const manage = document.createElement('div');
   manage.innerHTML = 'Manage Profiles';
   manage.classList.add('link');
@@ -24,6 +27,7 @@ const Profile = () => {
   signout.innerHTML = 'Sign out of Netflix';
   signout.classList.add('link');
 
+  container.appendChild(user);
   container.appendChild(manage);
   container.appendChild(exit);
   container.appendChild(account);

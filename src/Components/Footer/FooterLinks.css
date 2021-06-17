@@ -1,0 +1,25 @@
+.footer_links_container {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1.2;
+  font-size: 13px;
+  align-items: flex-start;
+  margin: 14px 0 14px 0;
+  padding: 0;
+}
+
+.footer_link {
+  margin-right: 10px;
+  box-sizing: border-box;
+  width: 254px;
+  height: 30px;
+}
+
+.footer_link a {
+  color: grey;
+  text-decoration: none;
+}
+.footer_link a:hover {
+  text-decoration: underline;
+}

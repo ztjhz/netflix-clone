@@ -4,6 +4,7 @@ import requests from './requests';
 import MovieRow from './Components/Row';
 import Hero from './Components/Hero';
 import NavBar from './Components/Navbar';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         title="Documentaries"
         backdrop
       />
+      <Footer />
     </>
   );
 }
