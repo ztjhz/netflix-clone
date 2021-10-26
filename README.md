@@ -1,6 +1,23 @@
 # Netflix Clone
 
-## Website: https://netflix-clone-b1846.web.app
+![JavaScript](https://img.shields.io/badge/-JavaScript-%23F7DF1C?style=flat-square&logo=javascript&logoColor=000000&labelColor=%23F7DF1C&color=%23FFCE5A)
+![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=ffffff)
+![HTML5](https://img.shields.io/badge/-HTML5-%23E44D27?style=flat-square&logo=html5&logoColor=ffffff)
+![CSS3](https://img.shields.io/badge/-CSS3-%231572B6?style=flat-square&logo=css3)
+
+## [Live Website](https://netflix-clone-b1846.web.app)
+
+<img src="public/netflixclone.gif" alt="demo gif" width="400"/>
+
+### Implementation
+
+- JavaScript 
+  - Fetch data from TMDB API
+- React
+  - Create a frontend clone of NetFlix
+- CSS3 
+  - Style website to look like NetFlix
+---
 
 # Getting Started with Create React App
 
