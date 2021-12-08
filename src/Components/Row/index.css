@@ -40,6 +40,24 @@
   padding-left: 1rem;
 }
 
+.alert {
+  background: rgba(255, 0, 0, 0.3);
+  color: white;
+
+  box-sizing: border-box;
+
+  width: 100vw;
+  height: fit-content;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  padding: 20px 30px;
+
+  font-weight: bold;
+  text-align: center;
+}
+
 /* .scroll_arrow {
   width: 1rem;
   height: 1rem;

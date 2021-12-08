@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
@@ -9,12 +11,15 @@ const baseUrl = 'https://image.tmdb.org/t/p/original';
 const MovieRow = ({ fetchUrl, title, backdrop }) => {
   const [movieList, setMovieList] = useState();
   const [trailer, setTrailer] = useState();
+  const [movieTitle, setMovieTitle] = useState();
 
-  const openTrailer = (title) => {
-    movieTrailer(title, { id: true })
+  const openTrailer = (trailerTitle) => {
+    movieTrailer(trailerTitle, { id: true })
       .then((response) => {
         if (trailer === response) {
           setTrailer('');
+        } else if (response === null) {
+          setTrailer('null');
         } else {
           setTrailer(response);
         }
@@ -49,24 +54,30 @@ const MovieRow = ({ fetchUrl, title, backdrop }) => {
                   }`}
                   alt={movie?.title || movie?.name}
                   onClick={() => {
+                    setMovieTitle(movie?.title || movie?.name);
                     openTrailer(movie?.title || movie?.name);
                   }}
                 />
               </div>
             ))}
         </div>
-        {trailer && (
+        {trailer === '' || trailer === 'null' ? null : (
           <YouTube
             videoId={trailer}
             opts={{
-              height: '400',
-              width: '640',
+              height: `${Math.min(400, window.innerHeight * 0.7)}`,
+              width: `${Math.min(640, window.innerWidth * 0.8)}`,
               playerVars: {
                 autoplay: 1,
               },
             }}
             className="trailer_player"
           />
+        )}
+        {trailer === 'null' && (
+          <div className="alert">
+            No trailer found for <u>{movieTitle}</u>
+          </div>
         )}
       </div>
     </>
