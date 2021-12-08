@@ -1,36 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import { IoMdNotifications, IoMdArrowDropdown } from 'react-icons/io';
 import { HiSearch } from 'react-icons/hi';
-import Profile from './Profile';
 import ProfileIcon from './ProfileIcon';
 import './index.css';
 
+const handleScroll = (setTrans) => {
+  if (window.scrollY >= 68) {
+    setTrans(false);
+  } else {
+    setTrans(true);
+  }
+};
+
 const NavBar = () => {
   const [trans, setTrans] = useState(true);
-  const [profile, setProfile] = useState();
+  const [dropdownHeight, setDropdownHeight] = useState(0);
+  const [dropdownWrapper, setDropdownWrapper] = useState(null);
+  const [profileIcon, setProfileIcon] = useState(null);
 
   const showProfile = () => {
     const dropdownArrow = document.querySelector('.dropdown_arrow');
     dropdownArrow.style.transform = 'rotate(180deg)';
-    document.querySelector('.profile_icon').appendChild(profile);
+
+    const profileDropdown = document.querySelector('.profile_dropdown');
+    setDropdownHeight(profileDropdown.offsetHeight);
+  };
+
+  const handleMouseMove = (e) => {
+    if (
+      !dropdownWrapper.contains(e.target) &&
+      !profileIcon.contains(e.target)
+    ) {
+      setDropdownHeight(0);
+    }
+    console.log(1);
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY >= 68) {
-        setTrans(false);
-      } else {
-        setTrans(true);
-      }
-    });
-    const p = Profile();
-    p.addEventListener('mouseleave', () => {
-      document.querySelector('.profile_icon').removeChild(p);
-      document.querySelector('.dropdown_arrow').style.transform =
-        'rotate(0deg)';
-    });
-    setProfile(p);
+    const dropdownContainer = document.querySelector('.profile_wrapper');
+    window.addEventListener('scroll', () => handleScroll(setTrans));
+    if (dropdownContainer) {
+      window.addEventListener('mousemove', (event) =>
+        handleMouseMove(event, setDropdownHeight, dropdownContainer)
+      );
+    }
   }, []);
+
+  useEffect(() => {
+    if (!dropdownWrapper) {
+      setDropdownWrapper(document.querySelector('.profile_dropdown_wrapper'));
+    }
+    if (!profileIcon) {
+      setProfileIcon(document.querySelector('.profile_icon'));
+    }
+
+    if (dropdownHeight > 0) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [dropdownHeight]);
 
   return (
     <>
@@ -66,6 +96,22 @@ const NavBar = () => {
             <div className="icons_wrapper">
               <ProfileIcon />
               <IoMdArrowDropdown size={20} className="dropdown_arrow" />
+            </div>
+            {/*  -------------------- drop down menu -------------------------- */}
+            <div
+              className="profile_dropdown_wrapper"
+              style={{ maxHeight: `${dropdownHeight}px` }}
+            >
+              <div className="profile_dropdown">
+                <div>
+                  User: <u>ztjhz</u>
+                </div>
+                <div className="link">Manage Profiles</div>
+                <div className="link divide_bottom">Exit Profile</div>
+                <div className="link">Account</div>
+                <div className="link">Help Center</div>
+                <div className="link">Sign out of Netflix</div>
+              </div>
             </div>
           </div>
         </div>

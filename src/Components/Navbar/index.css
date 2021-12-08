@@ -93,18 +93,28 @@
   align-items: center;
 }
 
-.profile_dropdown {
-  border-radius: 5px;
+.profile_dropdown_wrapper {
   position: absolute;
   z-index: 3;
   top: 50px;
+
   right: 10px;
   width: 200px;
+
+  max-height: 0;
+  overflow: hidden;
+
+  transition: max-height 200ms ease-in-out;
+}
+.profile_dropdown {
+  border-radius: 5px;
   height: fit-content;
   padding-bottom: 1rem;
   text-align: right;
+
   background-color: #141414;
   color: #fff;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,6 +131,11 @@
 .profile_dropdown .link:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.divide_bottom {
+  border-bottom: 2px solid white;
+  padding-bottom: 1rem;
 }
 
 .dropdown_arrow {
