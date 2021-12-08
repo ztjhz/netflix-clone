@@ -9,9 +9,9 @@ import './index.css';
 const baseUrl = 'https://image.tmdb.org/t/p/original';
 
 const MovieRow = ({ fetchUrl, title, backdrop }) => {
-  const [movieList, setMovieList] = useState();
-  const [trailer, setTrailer] = useState();
-  const [movieTitle, setMovieTitle] = useState();
+  const [movieList, setMovieList] = useState('');
+  const [trailer, setTrailer] = useState('');
+  const [movieTitle, setMovieTitle] = useState('');
 
   const openTrailer = (trailerTitle) => {
     movieTrailer(trailerTitle, { id: true })
