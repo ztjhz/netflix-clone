@@ -10,7 +10,7 @@ import './index.css';
 
 const baseUrl = 'https://image.tmdb.org/t/p/original';
 
-const MovieRow = ({ fetchUrl, title, backdrop }) => {
+const MovieRow = ({ fetchUrl, title, backdrop, lazy }) => {
   const [movieList, setMovieList] = useState('');
   const [trailer, setTrailer] = useState('');
   const [movieTitle, setMovieTitle] = useState('');
@@ -57,7 +57,7 @@ const MovieRow = ({ fetchUrl, title, backdrop }) => {
         <div className="posters_container">
           <div className="posters_wrapper">
             {movieList &&
-              movieList.map((movie) => (
+              movieList.map((movie, index) => (
                 <div className="poster_container" key={movie?.id}>
                   <img
                     key={movie?.id}
@@ -72,6 +72,7 @@ const MovieRow = ({ fetchUrl, title, backdrop }) => {
                       setMovieTitle(movie?.title || movie?.name);
                       openTrailer(movie?.title || movie?.name);
                     }}
+                    lazy={index > 7 || lazy ? 'lazy' : ''}
                   />
                 </div>
               ))}

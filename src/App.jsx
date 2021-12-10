@@ -17,31 +17,36 @@ function App() {
         title="Netflix Originals"
         backdrop
       />
-      <MovieRow fetchUrl={requests.topRated} title="Top Rated" backdrop />
+      <MovieRow fetchUrl={requests.topRated} title="Top Rated" backdrop lazy />
       <MovieRow
         fetchUrl={requests.actionMovies}
         title="Action Movies"
         backdrop
+        lazy
       />
       <MovieRow
         fetchUrl={requests.comedyMovies}
         title="Comedy Movies"
         backdrop
+        lazy
       />
       <MovieRow
         fetchUrl={requests.horrorMovies}
         title="Horror Movies"
         backdrop
+        lazy
       />
       <MovieRow
         fetchUrl={requests.romanceMovies}
         title="Romance Movies"
         backdrop
+        lazy
       />
       <MovieRow
         fetchUrl={requests.documentaries}
         title="Documentaries"
         backdrop
+        lazy
       />
       <Footer />
     </>
