@@ -31,9 +31,10 @@ const NavBar = () => {
       !dropdownWrapper.contains(e.target) &&
       !profileIcon.contains(e.target)
     ) {
+      const dropdownArrow = document.querySelector('.dropdown_arrow');
+      dropdownArrow.style.transform = 'rotate(0)';
       setDropdownHeight(0);
     }
-    console.log(1);
   };
 
   useEffect(() => {
