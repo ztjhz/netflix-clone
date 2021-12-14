@@ -7,7 +7,7 @@
 
 ## [Live Website](https://netflix-clone-b1846.web.app)
 
-<img src="public/netflixclone.gif" alt="demo gif" width="400"/>
+<a href="https://netflix-clone-b1846.web.app" target="_blank" alt="demo site"><img src="public/netflixclone.gif" alt="demo gif" width="400"/></a>
 
 ### Implementation
 
