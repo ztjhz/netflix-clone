@@ -14,8 +14,6 @@ const MovieRow = ({ fetchUrl, title, backdrop, lazy }) => {
   const [movieList, setMovieList] = useState('');
   const [trailer, setTrailer] = useState('');
   const [movieTitle, setMovieTitle] = useState('');
-  console.log(trailer);
-  console.log(movieTitle);
 
   const openTrailer = (trailerTitle) => {
     movieTrailer(trailerTitle, { id: true })
