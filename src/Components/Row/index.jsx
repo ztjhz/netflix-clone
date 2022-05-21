@@ -3,10 +3,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 import movieTrailer from 'movie-trailer';
-import YouTube from 'react-youtube';
 import { BsChevronRight, BsChevronLeft } from 'react-icons/bs';
 import { instance } from '../../requests';
 import './index.css';
+import Modal from '../Modal/Modal';
 
 const baseUrl = 'https://image.tmdb.org/t/p/original';
 
@@ -14,6 +14,8 @@ const MovieRow = ({ fetchUrl, title, backdrop, lazy }) => {
   const [movieList, setMovieList] = useState('');
   const [trailer, setTrailer] = useState('');
   const [movieTitle, setMovieTitle] = useState('');
+  console.log(trailer);
+  console.log(movieTitle);
 
   const openTrailer = (trailerTitle) => {
     movieTrailer(trailerTitle, { id: true })
@@ -85,25 +87,14 @@ const MovieRow = ({ fetchUrl, title, backdrop, lazy }) => {
             <BsChevronLeft className="row_left" />
           </div>
         </div>
-        {trailer === '' || trailer === 'null' ? null : (
-          <YouTube
-            videoId={trailer}
-            opts={{
-              height: `${Math.min(400, window.innerHeight * 0.7)}`,
-              width: `${Math.min(640, window.innerWidth * 0.8)}`,
-              playerVars: {
-                autoplay: 1,
-              },
-            }}
-            className="trailer_player"
-          />
-        )}
-        {trailer === 'null' && (
-          <div className="alert">
-            No trailer found for <u>{movieTitle}</u>
-          </div>
-        )}
       </div>
+      {trailer === '' ? null : (
+        <Modal
+          trailer={trailer}
+          movieTitle={movieTitle}
+          setTrailer={setTrailer}
+        />
+      )}
     </>
   );
 };
